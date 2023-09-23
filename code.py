@@ -12,7 +12,7 @@ if page == "Home":
     st.title("Welcome To Christ Naim's App! :slightly_smiling_face:")
     st.header("")
     st.header("This app is intended to demonstrate the change in the Gross Domestic Product(GDP) of the top 4 European countries(Germany, France, UK, and Italy) from 1960-2020, and then compare these countries rankings against worldwide GDP leaders from 2000-2020")
-    st.header(""
+    st.header("")
     
     st.header("This app is presented to **Dr. Fouad Zablith** at the American University of Beirut (AUB)")
     
