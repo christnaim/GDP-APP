@@ -61,7 +61,6 @@ elif page == "GDP Top 4 European Countries 1960-2020":
 
 
     fig.update_layout(
-        title="GDP Visualization For Top 4 European Countries",
         xaxis_title="Year",
         yaxis_title="GDP ($)",
         showlegend=True)
