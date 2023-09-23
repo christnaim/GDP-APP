@@ -56,10 +56,10 @@ elif page == "GDP Top 4 European Countries 1960-2020":
        
         fig = go.Figure()
         
-        fig.add_trace(go.Scatter(x=gdp_top_eur['year'],y=gdp_top_eur['Germany'],name='Germany'))
-        fig.add_trace(go.Scatter(x=gdp_top_eur['year'],y=gdp_top_eur['France'],name='France'))
-        fig.add_trace(go.Scatter(x=gdp_top_eur['year'],y=gdp_top_eur['United Kingdom'],name='United Kingdom'))
-        fig.add_trace(go.Scatter(x=gdp_top_eur['year'],y=gdp_top_eur['Italy'],name='Italy'))
+        fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'],y=filtered_gdp_top_eur['Germany'],name='Germany'))
+        fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'],y=filtered_gdp_top_eur['France'],name='France'))
+        fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'],y=filtered_gdp_top_eur['United Kingdom'],name='United Kingdom'))
+        fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'],y=filtered_gdp_top_eur['Italy'],name='Italy'))
         #for country in selected_country:
             #fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines+markers', connectgaps=False, name=country))
 
