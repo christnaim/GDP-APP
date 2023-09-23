@@ -57,8 +57,12 @@ elif page == "GDP Top 4 European Countries 1960-2020":
        
         fig = go.Figure()
          
+        #for country in selected_country:
+            #fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines+markers', connectgaps=False, name=country))
+
         for country in selected_country:
-            fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines+markers', connectgaps=False, name=country))
+            non_null_indices = filtered_gdp_top_eur[country].notna()
+            fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'][non_null_indices], y=filtered_gdp_top_eur[country][non_null_indices], mode='lines+markers', name=country))
     
         fig.update_layout(
             xaxis=dict(title='Year'),
