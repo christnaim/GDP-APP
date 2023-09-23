@@ -20,50 +20,50 @@ if page == "Home":
     st.header("")
     st.subheader("Presented on the 26th of September, 2023")
 
-elif page == "GDP Top 4 European Countries 1960-2020":
-    gdp_world=pd.read_csv("https://raw.githubusercontent.com/christnaim/GDP-APP/main/gdp_1960_2020.csv")
-
-    gdp_Ger=gdp_world[gdp_world['country']=="Germany"]
-    gdp_Fra=gdp_world[gdp_world['country']=="France"]
-    gdp_UK=gdp_world[gdp_world['country']=="United Kingdom"]
-    gdp_Ita=gdp_world[gdp_world['country']=="Italy"]
-
-    gdp_Ger_2=gdp_Ger[['year','gdp']]
-    gdp_Fra_2=gdp_Fra[['year','gdp']]
-    gdp_Uk_2=gdp_UK[['year','gdp']]
-    gdp_Ita_2=gdp_Ita[["year","gdp"]]
-
-    gdp_top_eur = pd.merge(gdp_Ger_2, gdp_Fra_2, on='year', how="outer", suffixes=('_ger', '_fra'))
-    gdp_top_eur = pd.merge(gdp_top_eur, gdp_Uk_2, on='year', how="outer", suffixes=('_ger', '_uk'))
-    gdp_top_eur = pd.merge(gdp_top_eur, gdp_Ita_2, on='year', how='outer', suffixes=('_uk', '_ita'))
-
-    gdp_top_eur.rename(columns={
-        'gdp_ger': 'Germany',
-        'gdp_fra': 'France',
-        'gdp_uk': 'United Kingdom',
-        'gdp_ita': 'Italy',
-    }, inplace=True)
-
-    st.title("GDP Visualization For Top 4 European Countries")
-    st.subheader("Line Chart with Year Slider and Country Selection \U0001F4C8")
-
-    selected_year = st.sidebar.slider("Select a Year", min_value=int(gdp_top_eur['year'].min()), max_value=int(gdp_top_eur['year'].max()), value=int(gdp_top_eur['year'].max()))
-
-    selected_country = st.sidebar.multiselect("Select Countries", gdp_top_eur.columns[1:], default=list(gdp_top_eur.columns[1:]))
-
-    filtered_gdp_top_eur = gdp_top_eur[gdp_top_eur['year'] <= selected_year][['year'] + selected_country]
-   
-    fig = go.Figure()
-     
-    for country in selected_country:
-        fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines+markers', connectgaps=False, name=country))
-
-    fig.update_layout(
-        xaxis=dict(title='Year'),
-        yaxis=dict(title='GDP ($)'))
-                                    
-    st.plotly_chart(fig)
-    #st.line_chart(filtered_gdp_top_eur.set_index('year'))
+    elif page == "GDP Top 4 European Countries 1960-2020":
+        gdp_world=pd.read_csv("https://raw.githubusercontent.com/christnaim/GDP-APP/main/gdp_1960_2020.csv")
+    
+        gdp_Ger=gdp_world[gdp_world['country']=="Germany"]
+        gdp_Fra=gdp_world[gdp_world['country']=="France"]
+        gdp_UK=gdp_world[gdp_world['country']=="United Kingdom"]
+        gdp_Ita=gdp_world[gdp_world['country']=="Italy"]
+    
+        gdp_Ger_2=gdp_Ger[['year','gdp']]
+        gdp_Fra_2=gdp_Fra[['year','gdp']]
+        gdp_Uk_2=gdp_UK[['year','gdp']]
+        gdp_Ita_2=gdp_Ita[["year","gdp"]]
+    
+        gdp_top_eur = pd.merge(gdp_Ger_2, gdp_Fra_2, on='year', how="outer", suffixes=('_ger', '_fra'))
+        gdp_top_eur = pd.merge(gdp_top_eur, gdp_Uk_2, on='year', how="outer", suffixes=('_ger', '_uk'))
+        gdp_top_eur = pd.merge(gdp_top_eur, gdp_Ita_2, on='year', how='outer', suffixes=('_uk', '_ita'))
+    
+        gdp_top_eur.rename(columns={
+            'gdp_ger': 'Germany',
+            'gdp_fra': 'France',
+            'gdp_uk': 'United Kingdom',
+            'gdp_ita': 'Italy',
+        }, inplace=True)
+    
+        st.title("GDP Visualization For Top 4 European Countries")
+        st.subheader("Line Chart with Year Slider and Country Selection \U0001F4C8")
+    
+        selected_year = st.sidebar.slider("Select a Year", min_value=int(gdp_top_eur['year'].min()), max_value=int(gdp_top_eur['year'].max()), value=int(gdp_top_eur['year'].max()))
+    
+        selected_country = st.sidebar.multiselect("Select Countries", gdp_top_eur.columns[1:], default=list(gdp_top_eur.columns[1:]))
+    
+        filtered_gdp_top_eur = gdp_top_eur[gdp_top_eur['year'] <= selected_year][['year'] + selected_country]
+       
+        fig = go.Figure()
+         
+        for country in selected_country:
+            fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines+markers', connectgaps=True, name=country))
+    
+        fig.update_layout(
+            xaxis=dict(title='Year'),
+            yaxis=dict(title='GDP ($)'))
+                                        
+        st.plotly_chart(fig)
+        #st.line_chart(filtered_gdp_top_eur.set_index('year'))
 
 elif page == "GDP World Leaders 2000-2020":
     
