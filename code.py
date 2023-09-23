@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
+import plotly.express as px
 
 st.set_page_config(page_title="Welcome to Christ Naim App", page_icon=":rocket:")
 
@@ -61,9 +62,7 @@ elif page == "GDP Top 4 European Countries 1960-2020":
             #fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines+markers', connectgaps=False, name=country))
 
         for country in selected_country:
-            data = filtered_gdp_top_eur[country].tolist()
-            data.append(None)
-            fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=data, mode='lines+markers', connectgaps=False, name=country))
+            fig.add_trace(px.line(filtered_gdp_top_eur, x='year', y=country, line_shape='linear', name=country).update_traces(mode='lines+markers'))
     
         fig.update_layout(
             xaxis=dict(title='Year'),
