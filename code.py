@@ -1,8 +1,8 @@
-pip install plotly
-import streamlit as st
+import subprocessimport streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
+subprocess.check_call(['pip', 'install', 'plotly'])
 
 st.set_page_config(page_title="Welcome to Christ Naim App", page_icon=":rocket:")
 
