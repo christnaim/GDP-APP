@@ -59,21 +59,10 @@ elif page == "GDP Top 4 European Countries 1960-2020":
     for country in selected_country:
         fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines', name=country))
 
-
-   fig.update_layout(
-        xaxis=dict(
-            title='Year',
-            tickmode='array',
-            tickvals=list(range(int(filtered_gdp_top_eur['year'].min()), int(filtered_gdp_top_eur['year'].max()) + 1, 5)),  # Set ticks every 5 years
-            ticktext=[str(year) for year in range(int(filtered_gdp_top_eur['year'].min()), int(filtered_gdp_top_eur['year'].max()) + 1, 5)]  # Format the ticks as years
-        ),
-        yaxis=dict(
-            title='GDP ($)',
-            tickmode='array',
-            tickvals=[2e12, 2.5e12, 3e12],  # Set tick positions at 2T, 2.5T, and 3T
-            ticktext=['2T', '2.5T', '3T']  # Format the ticks as 2T, 2.5T, 3T
-                                                                                    )
-                                                                                                   )
+    fig.update_layout(
+            xaxis=dict(title='Year'),
+            yaxis=dict(title='GDP ($)'))
+    
     st.plotly_chart(fig)
 
     #st.line_chart(filtered_gdp_top_eur.set_index('year'))
