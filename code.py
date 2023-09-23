@@ -59,7 +59,7 @@ elif page == "GDP Top 4 European Countries 1960-2020":
 elif page == "GDP World Leaders 2000-2020":
     
     st.title("GDP Visualization For GDP World Leaders From 2000 - 2022 🌍")
-    st.header("Bar Chart with Year Slider and Continent Selection \U0001F4CA")
+    st.header("Bar Chart with Year Window Input and Continent Selection \U0001F4CA")
     st.header("Hover Over Bars For Some Valuable Insights💡")
 
     gdp_world=pd.read_csv("https://raw.githubusercontent.com/christnaim/GDP-APP/main/gdp_1960_2020.csv")
