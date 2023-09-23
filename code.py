@@ -37,7 +37,7 @@ elif page == "GDP Top 4 European Countries 1960-2020":
     gdp_top_eur = pd.merge(gdp_top_eur, gdp_Uk_2, on='year', how="outer", suffixes=('_ger', '_uk'))
     gdp_top_eur = pd.merge(gdp_top_eur, gdp_Ita_2, on='year', how='outer', suffixes=('_uk', '_ita'))
     
-    gdp_top_eur = gdp_top_eur.sort_values(by='year,ascending='True')
+    gdp_top_eur = gdp_top_eur.sort_values(by='year,ascending=True)
     
     gdp_top_eur.rename(columns={
         'gdp_ger': 'Germany',
