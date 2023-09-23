@@ -76,8 +76,8 @@ elif page == "GDP World Leaders 2000-2020":
     
     dflt_continents=gdp_2000_2020['continent'].unique()
 
-    selected_continents=st.sidebar.multiselect("Select Continents", filtered_data['continent'].unique(),default=dflt_continents)
-
+    selected_continents = st.sidebar.multiselect("Select Continents", dflt_continents, default=dflt_continents)
+    
     filtered_data = filtered_data[filtered_data['continent'].isin(selected_continents)]
 
     continent_color_mapping={'Europe':'blue','Asia':'red','America':'green'}
