@@ -1,5 +1,3 @@
-subprocess.check_call(['pip', 'install', 'plotly'])
-import subprocess
 import streamlit as st
 import pandas as pd
 import numpy as np
