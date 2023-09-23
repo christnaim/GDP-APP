@@ -20,7 +20,7 @@ if page == "Home":
     st.header("")
     st.subheader("Presented on the 26th of September, 2023")
 
-elif page == "GDP Top 4 European Countries 1960-2020":
+#elif page == "GDP Top 4 European Countries 1960-2020":
     gdp_world=pd.read_csv("C:/Users/chris/OneDrive/Desktop/MSBA/Fall/MSBA 325 - Data Visualization & Communication\Homework\HW2\gdp_1960_2020.csv")
 
     gdp_Ger=gdp_world[gdp_world['country']=="Germany"]
