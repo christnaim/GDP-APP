@@ -54,6 +54,7 @@ elif page == "GDP Top 4 European Countries 1960-2020":
     filtered_gdp_top_eur = gdp_top_eur[gdp_top_eur['year'] <= selected_year][['year'] + selected_country]
 
 
+    st.write(filtered_gdp_top_eur)
     st.line_chart(filtered_gdp_top_eur.set_index('year'))
 
 
