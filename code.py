@@ -52,6 +52,8 @@ elif page == "GDP Top 4 European Countries 1960-2020":
         selected_country = st.sidebar.multiselect("Select Countries", gdp_top_eur.columns[1:], default=list(gdp_top_eur.columns[1:]))
     
         filtered_gdp_top_eur = gdp_top_eur[gdp_top_eur['year'] <= selected_year][['year'] + selected_country]
+
+        filtered_gdp_top_eur = filtered_gdp_top_eur.sort_values(by='year')
        
         fig = go.Figure()
          
