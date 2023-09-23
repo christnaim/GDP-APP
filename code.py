@@ -14,11 +14,11 @@ if page == "Home":
     st.header("This app is intended to demonstrate the change in the Gross Domestic Product(GDP) of the top 4 European countries(Germany, France, UK, and Italy) from 1960-2020, and then compare these countries rankings against worldwide GDP leaders from 2000-2020")
     st.header("")
     
-    st.header("This app is presented to **Dr. Fouad Zablith** at the American University of Beirut (AUB)")
+    st.header("This app is presented to Dr. Fouad Zablith at the American University of Beirut (AUB)")
     
     st.subheader("As part of MSBA 325 course: Data Visualization and Communication")
     st.header("")
-    st.subheader("Presented on the 24th of September, 2023")
+    st.subheader("Presented on the 26th of September, 2023")
 
 elif page == "GDP Top 4 European Countries 1960-2020":
     gdp_world=pd.read_csv("https://raw.githubusercontent.com/christnaim/GDP-APP/main/gdp_1960_2020.csv")
