@@ -110,7 +110,7 @@ elif page == "GDP World Leaders 2000-2020":
     fig.update_layout(
     title=f'GDP by Country for the year {selected_year}',
     xaxis=dict(title='Countries'),
-    yaxis=dict(title='GDP on Log Scale',type='log'),
+    yaxis=dict(title='GDP ($) on Log Scale',type='log'),
     legend=dict(title='Continent Legend',orientation='h',yanchor='bottom',y=1.02,xanchor='right',x=1))
 
     st.plotly_chart(fig)
