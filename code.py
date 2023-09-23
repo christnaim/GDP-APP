@@ -56,6 +56,7 @@ elif page == "GDP Top 4 European Countries 1960-2020":
 
     st.line_chart(filtered_gdp_top_eur.set_index('year'))
 
+
 elif page == "GDP World Leaders 2000-2020":
     
     st.title("GDP Visualization For GDP World Leaders From 2000 - 2022 🌍")
