@@ -52,9 +52,18 @@ elif page == "GDP Top 4 European Countries 1960-2020":
     selected_country = st.sidebar.multiselect("Select Countries", gdp_top_eur.columns[1:], default=list(gdp_top_eur.columns[1:]))
 
     filtered_gdp_top_eur = gdp_top_eur[gdp_top_eur['year'] <= selected_year][['year'] + selected_country]
+   
+    fig = go.Figure()
+     
+    for country in selected_country:
+        fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines', name=country))
 
-
-    st.line_chart(filtered_gdp_top_eur.set_index('year'))
+     fig.update_layout(
+        xaxis=dict(title='Year'),
+        yaxis=dict(title='GDP ($)'))
+                                    
+    st.plotly_chart(fig)
+    #st.line_chart(filtered_gdp_top_eur.set_index('year'))
 
 elif page == "GDP World Leaders 2000-2020":
     
