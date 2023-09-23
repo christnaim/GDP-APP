@@ -53,17 +53,14 @@ elif page == "GDP Top 4 European Countries 1960-2020":
         selected_country = st.sidebar.multiselect("Select Countries", gdp_top_eur.columns[1:], default=list(gdp_top_eur.columns[1:]))
     
         filtered_gdp_top_eur = gdp_top_eur[gdp_top_eur['year'] <= selected_year][['year'] + selected_country]
-
-        filtered_gdp_top_eur = filtered_gdp_top_eur.sort_values(by='year')
        
         fig = go.Figure()
          
         #for country in selected_country:
             #fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines+markers', connectgaps=False, name=country))
 
-        for country in selected_country:
-            fig.add_trace(px.line(filtered_gdp_top_eur, x='year', y=country, line_shape='linear', name=country).update_traces(mode='lines+markers'))
-    
+        #fig.add_trace(go.Scatter(x=data_Ger['year'],y=data_Ger['gdp'],name='Germany'))
+        st.write(filtered_gdp_top_eur)
         fig.update_layout(
             xaxis=dict(title='Year'),
             yaxis=dict(title='GDP ($)'))
