@@ -60,6 +60,7 @@ elif page == "GDP Top 4 European Countries 1960-2020":
         fig.add_trace(go.Scatter(x=filtered_gdp_top_eur['year'], y=filtered_gdp_top_eur[country], mode='lines', name=country))
 
     fig.update_layout(
+            title=f'GDP by European Country from 1960 until {selected_year}',
             xaxis=dict(title='Year'),
             yaxis=dict(title='GDP ($)'))
     
